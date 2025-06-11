@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            border-radius: 4px;
+            color : rgb(112, 111, 111);
+            border-width: 1px;
+            border-color: rgb(190, 186, 186);
+            border-top-color: rgb(232, 227, 227);
+            font-size: large;
+            padding: 20px;
+            padding-left: 20px;
+            padding-right: 100px;
+        }
+        .forgot{
+            color : rgb(15, 179, 146);
+            font-size: medium;
+            text-align: left;
+            font-weight: 600;
+            font-family: sans-serif;
+            border-width: 0px;
+            padding-right: 200px;
+
+        }
+        .account{
+            color : rgb(115, 116, 116);
+            font-size: auto;
+            text-align: center;
+            font-weight: 600;
+            font-family: sans-serif;
+            border-width: 0px;
+            padding-left: 175px;
+
+        }
+        a{
+            text-decoration: none;
+        }
+        .btn{
+            border-radius: 4px;
+            border-right-color: azure;
+            border-bottom-color: azure;
+            border-width: 0px;
+            color : rgb(255, 255, 255);
+            font-size: 25px;
+            padding: 15px;
+            padding-left: 100px;
+            padding-right: 100px;
+            background-color: rgb(15, 179, 146);
+            width: 350px;
+            font-weight: 700;
+        }
+        .result{
+            color: black;
+        }
+        tag{
+            display: inline;
+        }
+    </style>
+</head>
+<body style="background-color: rgb(217, 231, 231);">
+    <h1>Binary Search Implementation Machine</h1>
+    <p>Here you can learn how to apply binary search. Process is, we will have a number in mind, you'll guess it.<br>
+    To guess the number you can always choose the middle number between the last higher and lower values.<br>
+    By this you can guess the number within <b>N</b> (2<sup>N</sup> = The Number) turns. </p>
+    <div><br> 
+    We'll give a clue if the number is too high or low.</div>
+    <h3>Enter a number please:
+    </h3>
+    <input type="text" class="box" id="number"/>
+    <br/><br/>
+    <button class="btn" onclick="checker()">Enter</button><br><br/>
+    <b>Your inputs: </b> <tag id ="tries">No input</tag><br><br>
+    <div id="resultin">We'll see the results here</div>
+
+
+    <script>
+        const ran = Math.floor(Math.random() * 100) + 1;
+        let string = " ";
+        let s = " ";
+        function checker(){
+            const val1 = document.getElementById("number").value; 
+            const resultin = document.getElementById("resultin");
+            const tries = document.getElementById("tries");
+            const guess = parseInt(val1);
+            
+            string = string + s + val1;
+            tries.innerText = string;
+
+            if(guess < ran){
+                resultin.innerText = "Number is low"; 
+            }
+            else if(guess>ran){
+                resultin.innerText = "Number is high";
+            }
+            else {
+                resultin.innerText = `You won, the number is ${ran}`;
+            }
+        }
+
+    </script>
+
+</body>
+</html>
