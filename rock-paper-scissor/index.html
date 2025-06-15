@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let ifWon = 0;
+        function play(condition){
+            while(condition == 0){
+                let turn = prompt("Please choose 'Rock', 'Paper' or 'Scissor'");
+                
+                let cmpChoice =(Math.floor(Math.random() * 100) + 1)%3;
+                console.log(turn);
+                if(turn == null){
+                    condition = 1;
+                    cmpChoice = 3;
+                }
+
+                if(cmpChoice == 0 && turn == "Rock"){
+                    console.log("Draw! Computer Chose Rock too. ");
+                }
+                else if(cmpChoice == 0 && turn == 'Paper'){
+                    console.log("You won! Computer chose Rock.");
+                    ifWon = 1;
+                    condition = 1;
+                    if(confirm("Do you wish to play again?")){
+                    condition = 0;
+                    }
+                    else condition = 1;
+                }
+                else if(cmpChoice == 0 && turn == 'Scissor'){
+                    console.log("You lost! Computer chose Rock.");
+                }
+                else if(cmpChoice == 1 && turn == "Rock"){
+                    console.log("You lost! Computer Chose Paper. ");
+                }
+                else if(cmpChoice == 1 && turn == 'Paper'){
+                    console.log("Draw! Computer chose Paper too.");
+                }
+                else if(cmpChoice == 1 && turn == 'Scissor'){
+                    console.log("You won! Computer chose Paper");
+                    ifWon = 1;
+                    condition = 1;
+                    if(confirm("Do you wish to play again?")){
+                    condition = 0;
+                    }
+                    else condition = 1;
+                }
+                else if(cmpChoice == 2 && turn == "Rock"){
+                    console.log("You won! Computer chose Scissor. ");
+                    ifWon = 1;
+                    condition = 1;
+                    if(confirm("Do you wish to play again?")){
+                       condition = 0;
+                    }
+                    else condition = 1;
+                }
+                else if(cmpChoice == 2 && turn == 'Paper'){
+                    console.log("You lost! Computer chose Scissor.");
+                    
+                }
+                else if(cmpChoice == 2 && turn == 'Scissor'){
+                    console.log("Draw! Computer chose Scissor too.");
+                }
+            }
+        }
+
+        play(ifWon);
+    </script>
+</body>
+</html>
